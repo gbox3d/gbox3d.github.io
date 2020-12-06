@@ -9,25 +9,23 @@
     <link href="res/retrocss/nes.min.css" rel="stylesheet" />
     <link href="res/retrocss/core.css" rel="stylesheet" />
 
-    <section class="showcase">
-        <section class="nes-container with-title">
-            <h3 class="title"> Camera</h3>
-
-            <canvas id="myCanvas" width="640" height="480"></canvas>
-
-        </section>
-    </section>
-
-    <section class="showcase">
-        <section class="nes-container">
-            <button type="button" class="start nes-btn"> start </button>
-            <button type="button" class="stop nes-btn"> stop </button>
-        </section>
-    </section>
 
 </head>
 
 <body>
+    
+    <section class="showcase">
+        <section class="nes-container">
+            <button type="button" class="sample-1 nes-btn" > sample1 </button>
+            <button type="button" class="stop nes-btn"> stop </button>
+        </section>
+    </section>
+
+    <script>
+        document.querySelector('.sample-1').addEventListener('click',()=> {
+            location.href = './test2.html'
+        })
+    </script>
 
 </body>
 

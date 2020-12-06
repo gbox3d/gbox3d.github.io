@@ -8,18 +8,31 @@
 </head>
 
 <body>
-    <video autoplay></video>
+
+    <video autoplay muted playsinline></video>
 
     <script>
+
+        const video = document.querySelector("video");
+
+        // const vgaConstraints = {
+        //     video: { width: { exact: 640 }, height: { exact: 480 } },
+        // };
+
+        // navigator.mediaDevices.getUserMedia(vgaConstraints).then((stream) => {
+        //     console.log(stream)
+        //     video.srcObject = stream;
+        // });
+
         const constraints = {
             video: true,
         };
 
-        const video = document.querySelector("video");
-
         navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
             video.srcObject = stream;
         });
+
+
     </script>
 
 </body>
