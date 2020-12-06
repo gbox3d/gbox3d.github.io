@@ -1,0 +1,17 @@
+@font-face {
+    font-family: dgmfont;
+    src: url('./DungGeunMo.ttf');
+}
+
+html,body,pre,code,kbd,samp {
+    font-family: "dgmfont";
+    font-size: 24px;
+}
+
+.showcase {
+    margin-top: 2.5em;
+}
+
+.hide {
+    display: none;
+}
