@@ -8,12 +8,18 @@
 </head>
 
 <body>
-    <device type="media" onchange="update(this.data)"></device>
     <video autoplay></video>
+
     <script>
-        function update(stream) {
-            document.querySelector('video').src = stream.url;
-        }
+        const constraints = {
+            video: true,
+        };
+
+        const video = document.querySelector("video");
+
+        navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+            video.srcObject = stream;
+        });
     </script>
 
 </body>
