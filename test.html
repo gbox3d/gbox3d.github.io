@@ -5,40 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> The Projet Daisy </title>
-
-    <link href="res/retrocss/nes.min.css" rel="stylesheet" />
-    <link href="res/retrocss/core.css" rel="stylesheet" />
-
-    <!DOCTYPE html>
-<html lang="ko">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> The Projet Daisy </title>
-
-    <link href="res/retrocss/nes.min.css" rel="stylesheet" />
-    <link href="res/retrocss/core.css" rel="stylesheet" />
-
-    <section class="showcase">
-        <section class="nes-container with-title">
-            <h3 class="title"> Camera</h3>
-    
-            <canvas id="myCanvas" width="640" height="480"></canvas>
-    
-        </section>
-    </section>
-  
-
-<body>
-
-</body>
-
-</html>
-
 </head>
 
 <body>
+    <device type="media" onchange="update(this.data)"></device>
+    <video autoplay></video>
+    <script>
+        function update(stream) {
+            document.querySelector('video').src = stream.url;
+        }
+    </script>
 
 </body>
 
