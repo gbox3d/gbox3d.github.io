@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> html5 cam sample </title>
+</head>
+
+<body>
+
+    <div>rev 1</div>
+    <video autoplay muted playsinline></video>
+
+    <script>
+
+        function hasGetUserMedia() {
+            return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
+        }
+
+
+        async function _main() {
+
+            let videoElement = document.querySelector('video')
+
+            if (hasGetUserMedia()) {
+                console.log('media found')
+            }
+            else {
+                console.log('media not found')
+            }
+
+            //디바이스 목록 얻기 
+            let _devs = await navigator.mediaDevices.enumerateDevices()
+            console.log(_devs)
+
+            navigator.mediaDevices.getUserMedia({
+                video: true
+            }).then((stream) => {
+                window.stream = stream;
+                videoElement.srcObject = stream;
+            }).catch((error) => {
+                console.error('Error: ', error);
+            })
+
+        }
+
+        _main()
+
+
+    </script>
+
+</body>
+
+</html>
