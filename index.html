@@ -13,21 +13,52 @@
 </head>
 
 <body>
-    
+
+    <canvas id="myCanvas" width="640" height="480"></canvas>
+
     <section class="showcase">
         <section class="nes-container">
-            <button type="button" class="sample-1 nes-btn" > sample1 </button>
-            <button type="button" class="cam-sample-1 nes-btn">  </button>
+            <button type="button" class="sample-1 nes-btn"> sample1 </button>
+            <button type="button" class="cam-sample-1 nes-btn"> </button>
         </section>
     </section>
 
     <script>
-        document.querySelector('.sample-1').addEventListener('click',()=> {
+        document.querySelector('.sample-1').addEventListener('click', () => {
             location.href = './test2.html'
         })
-        document.querySelector('.cam-sample-1').addEventListener('click',()=> {
+        document.querySelector('.cam-sample-1').addEventListener('click', () => {
             location.href = './cam/ex01.html'
         })
+
+
+        (async function() {
+            let _tick = (new Date()).getTime()
+
+            let url = `http://220.82.136.247:20831/getCurrentImg?index=0`
+            let blob = await (await fetch(url)).blob()
+
+            let imgObj = await new Promise((resolve, reject) => {
+                var tempImage = new Image();
+                let objectURL = URL.createObjectURL(blob);
+                tempImage.src = objectURL;
+                tempImage.onload = function () {
+                    resolve(tempImage)
+                }
+            })
+
+            let canvas = document.getElementById('myCanvas');
+            let context = canvas.getContext('2d');
+            context.drawImage(imgObj, 0, 0, 640, 480)
+            console.log(`tick ${((new Date()).getTime()) - _tick} ms`)
+
+
+        })()
+
+
+
+
+
     </script>
 
 </body>
